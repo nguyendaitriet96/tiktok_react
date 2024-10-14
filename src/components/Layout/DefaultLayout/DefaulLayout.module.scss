@@ -5,7 +5,14 @@
 }
 
 .containter {
-    width: 1150px;
+    width: var(--default-layout-header-width);
     min-height: 500px;
     background-color: aquamarine;
+    display: flex;
+}
+
+.content {
+    flex: 1;
+    min-height: 500px;
+    background-color: chocolate;
 }
