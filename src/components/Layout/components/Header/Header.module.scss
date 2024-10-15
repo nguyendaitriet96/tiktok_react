@@ -1,4 +1,9 @@
 .wrapper {
+    --search-border-radius: 92px;
+    --search-heigth: 46px;
+    --search-top-space: 9px;
+    --search-btn-width: 52px;
+
     height: var(--default-layout-header-height, 60px);
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
     display: flex;
@@ -10,4 +15,78 @@
     height: 100%;
     width: var(--default-layout-header-width);
     background-color: bisque;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+}
+
+.search {
+    position: relative;
+    width: 361px;
+    height: var(--search-heigth);
+    background-color: rgba(22, 24, 35, 0.06);
+    border-radius: var(--search-border-radius);
+    padding-left: 16px;
+    display: flex;
+    border: 1.5px solid transparent;
+
+    input {
+        flex: 1;
+        height: 100%;
+        font-size: 1.6rem;
+        color: var(--black);
+        background-color: transparent;
+        caret-color: var(--primary);
+    }
+
+    input:not(:placeholder-shown) ~ .search-btn {
+        color: var(--search-hover-color);
+    }
+
+    &::after {
+        content: '';
+        top: var(--search-top-space);
+        right: var(--search-btn-width);
+        position: absolute;
+        height: calc(var(--search-heigth) - var(--search-top-space) * 2);
+        width: 1px;
+        background-color: var(--search-color);
+    }
+
+    &:focus-within {
+        border-color: var(--search-hover-color);
+    }
+}
+
+.clear,
+.loading {
+    background-color: transparent;
+    color: var(--search-color);
+    position: absolute;
+    right: calc(var(--search-btn-width) + 16px);
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.search-btn {
+    width: var(--search-btn-width);
+    height: 100%;
+    border-top-right-radius: var(--search-border-radius);
+    border-bottom-right-radius: var(--search-border-radius);
+    background-color: transparent;
+    font-size: 1.8rem;
+    color: var(--search-color);
+
+    &:hover {
+        cursor: pointer;
+        color: var(--search-hover-color);
+        background-color: rgba(93, 93, 93, 0.212);
+    }
+
+    &:active {
+        background-color: rgba(77, 77, 77, 0.212);
+    }
 }
