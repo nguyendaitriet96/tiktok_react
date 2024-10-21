@@ -6,6 +6,7 @@
 
 .containter {
     width: var(--default-layout-header-width);
+    padding: 0 var(--default-layout-horizontal-space);
     min-height: 500px;
     display: flex;
 }

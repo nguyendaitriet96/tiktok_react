@@ -13,13 +13,11 @@
 
 .content {
     height: 100%;
+    padding: 0 var(--default-layout-horizontal-space);
     width: var(--default-layout-header-width);
     display: flex;
     align-items: center;
     justify-content: space-between;
-}
-
-.logo {
 }
 
 .search,
@@ -101,9 +99,32 @@
     }
 }
 
+.actions {
+    display: flex;
+    align-items: center;
+}
+
+.action-btn {
+    color: #161823;
+    background-color: transparent;
+    font-size: 2.2rem;
+    padding: 4px 12px;
+    cursor: pointer;
+}
+
 .more-action {
     font-size: 2rem;
     margin-left: 24px;
     padding: 4px 8px;
     background-color: transparent;
+    cursor: pointer;
+}
+
+.avatar {
+    width: 32px;
+    height: 32px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-left: 12px;
+    cursor: pointer;
 }
