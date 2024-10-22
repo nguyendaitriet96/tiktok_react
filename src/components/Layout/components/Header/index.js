@@ -3,6 +3,7 @@ import images from '~/assets/images';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import Image from '~/components/Image';
 
 import HeadlessTippy from '@tippyjs/react/headless';
 import Tippy from '@tippyjs/react';
@@ -11,7 +12,6 @@ import classNames from 'classnames/bind';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faArrowRightFromBracket,
-    faArrowUpFromBracket,
     faCircleQuestion,
     faCircleXmark,
     faEarthAsia,
@@ -19,8 +19,6 @@ import {
     faGear,
     faKeyboard,
     faMagnifyingGlass,
-    faMessage,
-    faQuestion,
     faSpinner,
 } from '@fortawesome/free-solid-svg-icons';
 
@@ -28,6 +26,7 @@ import { faCloudUpload, faUser } from '@fortawesome/free-regular-svg-icons';
 import { useState } from 'react';
 import AccountItem from '~/components/AccountItem';
 import { faTiktok } from '@fortawesome/free-brands-svg-icons';
+import { InboxIcon, UploadIcon } from '~/components/Icons';
 
 const cx = classNames.bind(styles);
 
@@ -129,11 +128,11 @@ function Header() {
                         <>
                             <Tippy delay="200" content="Upload video" placement="bottom">
                                 <button className={cx('action-btn')}>
-                                    <FontAwesomeIcon icon={faArrowUpFromBracket} />
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
                             <button className={cx('action-btn')}>
-                                <FontAwesomeIcon icon={faMessage} />
+                                <InboxIcon />
                             </button>
                         </>
                     ) : (
@@ -144,11 +143,12 @@ function Header() {
                     )}
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('avatar')}
-                                src="https://avatars.githubusercontent.com/u/176483409?v=4"
+                                src="https://img.freepik.com/free-photo/close-up-portrait-serious-young-asian-lady-showing-stop-gesture-with-crossed-hands-looking-camera_171337-11275.jpg?size=626&ext=jpg&ga=GA1.1.1071703389.1729564426&semt=ais_hybrid"
                                 alt=""
-                            ></img>
+                                fallback="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCRRdvpS3KRcG9a43mI5-vbU2kysPylGtfHw&s"
+                            />
                         ) : (
                             <button className={cx('more-action')}>
                                 <FontAwesomeIcon icon={faEllipsisVertical} />
