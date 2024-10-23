@@ -7,6 +7,9 @@ import { faCircleXmark, faMagnifyingGlass, faSpinner } from '@fortawesome/free-s
 import HeadlessTippy from '@tippyjs/react/headless';
 import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
+import useDebounce from '~/hooks/useDebounce';
+
+import * as searchServices from '~/apiServices/searchService';
 
 const cx = classNames.bind(styles);
 
@@ -16,26 +19,27 @@ function Search() {
     const [showResult, setShowResult] = useState(true);
     const [loading, setLoading] = useState(false);
 
+    const debouncedValue = useDebounce(searchValue, 500);
+
     const inputRef = useRef();
 
     useEffect(() => {
-        if (!searchValue.trim()) {
+        if (!debouncedValue.trim()) {
             setSearchResult([]);
             return;
         }
 
-        setLoading(true);
+        const fetchApi = async () => {
+            setLoading(true);
 
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
-            .then((response) => response.json())
-            .then((response) => {
-                setSearchResult(response.data);
-                setLoading(false);
-            })
-            .catch(() => {
-                setLoading(false);
-            });
-    }, [searchValue]);
+            const result = await searchServices.search(debouncedValue);
+            setSearchResult(result);
+
+            setLoading(false);
+        };
+
+        fetchApi();
+    }, [debouncedValue]);
 
     const handleClear = () => {
         setSearchValue('');
