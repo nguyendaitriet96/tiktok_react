@@ -8,6 +8,8 @@
     --search-color: rgb(167, 167, 167);
     --search-hover-color: rgba(201, 201, 201, 0.331);
 
+    --font-family: 'TikTokFont', sans-serif;
+
     //Default Layout
     --default-layout-header-height: 60px;
     --default-layout-header-width: 1150px;
@@ -25,7 +27,7 @@ html {
 }
 
 body {
-    font-family: 'TikTokFont', sans-serif;
+    font-family: var(--font-family);
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
