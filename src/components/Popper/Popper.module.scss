@@ -9,4 +9,6 @@
     box-sizing: border-box;
     overflow: hidden auto;
     list-style-type: none;
+    display: flex;
+    flex-direction: column;
 }
