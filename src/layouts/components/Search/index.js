@@ -9,7 +9,7 @@ import { useEffect, useRef, useState } from 'react';
 import classNames from 'classnames/bind';
 import useDebounce from '~/hooks/useDebounce';
 
-import * as searchServices from '~/apiServices/searchService';
+import * as searchService from '~/services/searchService';
 
 const cx = classNames.bind(styles);
 
@@ -32,7 +32,7 @@ function Search() {
         const fetchApi = async () => {
             setLoading(true);
 
-            const result = await searchServices.search(debouncedValue);
+            const result = await searchService.search(debouncedValue);
 
             setSearchResult(result);
 

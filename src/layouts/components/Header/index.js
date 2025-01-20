@@ -3,7 +3,7 @@ import images from '~/assets/images';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import Image from '~/components/Image';
-import routes from '~/configs/routes';
+import configs from '~/configs';
 
 import Tippy from '@tippyjs/react';
 import 'tippy.js/dist/tippy.css';
@@ -134,7 +134,7 @@ function Header() {
     return (
         <header className={cx('wrapper')}>
             <div className={cx('content')}>
-                <Link to={routes.home} className={cx('logo')}>
+                <Link to={configs.routes.home} className={cx('logo')}>
                     <img src={images.logo} alt="No image" />
                 </Link>
 

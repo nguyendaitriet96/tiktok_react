@@ -38,7 +38,6 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFun
     return (
         <Tippy
             interactive
-            appendTo={() => document.body}
             delay={[0, 800]}
             placement="bottom-end"
             hideOnClick={hideOnClick}
